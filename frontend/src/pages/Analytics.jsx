@@ -75,8 +75,8 @@ export default function Analytics() {
       {/* Header & Month Selector */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
-            <PieIcon className="w-6 h-6 text-amber-400" />
+          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-start sm:items-center gap-2">
+            <PieIcon className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5 sm:mt-0" />
             Spending Analytics & Category Breakdown
           </h1>
           <p className="text-xs text-slate-400 mt-0.5">
@@ -89,7 +89,7 @@ export default function Analytics() {
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="pl-9 pr-8 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-white text-xs font-semibold focus:outline-none focus:border-amber-500 shadow-sm"
+            className="w-full sm:w-auto pl-9 pr-8 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-white text-xs font-semibold focus:outline-none focus:border-amber-500 shadow-sm"
           >
             {getMonthOptions().map((opt) => (
               <option key={opt.value} value={opt.value}>

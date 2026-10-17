@@ -101,8 +101,8 @@ export default function Expenses() {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
-            <ReceiptIndianRupee className="w-6 h-6 text-amber-400" />
+          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-start sm:items-center gap-2">
+            <ReceiptIndianRupee className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5 sm:mt-0" />
             Daily Expense Management
           </h1>
           <p className="text-xs text-slate-400 mt-0.5">
@@ -115,7 +115,7 @@ export default function Expenses() {
             setEditingExpense(null);
             setModalOpen(true);
           }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 text-xs font-bold transition-all shadow-md shadow-amber-500/20 active:scale-95"
+          className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 text-xs font-bold transition-all shadow-md shadow-amber-500/20 active:scale-95"
         >
           <Plus className="w-4 h-4" />
           Record New Expense
@@ -221,7 +221,50 @@ export default function Expenses() {
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto">
+          <>
+          <div className="sm:hidden divide-y divide-slate-200">
+            {expenses.map((exp) => (
+              <article key={exp.id} className="p-4 space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-white break-words">{exp.description}</p>
+                    <p className="text-xs text-slate-400 mt-1">{exp.expense_date}</p>
+                  </div>
+                  <p className="text-sm font-bold text-amber-400 whitespace-nowrap">
+                    ₹{exp.amount_inr.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <span className="inline-block max-w-full px-2.5 py-1 rounded-lg bg-slate-800 text-slate-200 text-[11px] font-medium border border-slate-700/60 break-words">
+                      {exp.category}
+                    </span>
+                    {exp.notes && <p className="text-xs text-slate-400 mt-2 break-words">{exp.notes}</p>}
+                  </div>
+                  <div className="flex items-center gap-1 flex-shrink-0">
+                    <button
+                      onClick={() => {
+                        setEditingExpense(exp);
+                        setModalOpen(true);
+                      }}
+                      className="min-w-10 min-h-10 inline-flex items-center justify-center text-slate-500 hover:text-blue-700 rounded-lg hover:bg-slate-100 transition-colors"
+                      aria-label={`Edit ${exp.description}`}
+                    >
+                      <Pencil className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setDeleteTarget(exp)}
+                      className="min-w-10 min-h-10 inline-flex items-center justify-center text-slate-500 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors"
+                      aria-label={`Delete ${exp.description}`}
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead className="bg-slate-950/60 border-b border-slate-800 text-slate-400 uppercase tracking-wider font-semibold text-[11px]">
                 <tr>
@@ -292,6 +335,7 @@ export default function Expenses() {
               </tbody>
             </table>
           </div>
+          </>
         )}
       </div>
 

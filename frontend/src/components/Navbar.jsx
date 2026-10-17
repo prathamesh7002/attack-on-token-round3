@@ -168,7 +168,9 @@ export default function Navbar({ activePage, setActivePage }) {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+              className="min-w-11 min-h-11 p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -179,7 +181,7 @@ export default function Navbar({ activePage, setActivePage }) {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-800 bg-slate-900 px-4 pt-2 pb-4 space-y-2">
+        <div className="md:hidden border-b border-slate-800 bg-slate-900 px-4 pt-2 pb-4 space-y-2 max-h-[calc(100dvh-4rem)] overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activePage === item.id;
@@ -190,7 +192,7 @@ export default function Navbar({ activePage, setActivePage }) {
                   setActivePage(item.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium ${
+                className={`w-full min-h-11 flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium ${
                   isActive
                     ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
                     : 'text-slate-300 hover:bg-slate-800'
@@ -211,11 +213,11 @@ export default function Navbar({ activePage, setActivePage }) {
                   handleVendorSwitch(vendor.id);
                   setMobileMenuOpen(false);
                 }}
-                className={`w-full text-left px-3 py-2 text-xs rounded-lg ${
+                className={`w-full min-h-11 text-left px-3 py-2 text-xs rounded-lg ${
                   vendor.id === user?.id ? 'text-amber-400 font-bold bg-amber-500/10' : 'text-slate-300 hover:bg-slate-800'
                 }`}
               >
-                {vendor.vendor_name} ({vendor.stall_type})
+                <span className="block truncate">{vendor.vendor_name} ({vendor.stall_type})</span>
               </button>
             ))}
           </div>
@@ -223,7 +225,7 @@ export default function Navbar({ activePage, setActivePage }) {
           <div className="pt-2 border-t border-slate-800">
             <button
               onClick={logout}
-              className="w-full flex items-center gap-2 px-3 py-2 text-sm text-rose-400 hover:bg-rose-500/10 rounded-xl"
+              className="w-full min-h-11 flex items-center gap-2 px-3 py-2 text-sm text-rose-400 hover:bg-rose-500/10 rounded-xl"
             >
               <LogOut className="w-4 h-4" />
               Sign Out

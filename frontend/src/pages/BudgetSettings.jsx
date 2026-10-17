@@ -106,8 +106,8 @@ export default function BudgetSettings() {
       {/* Header & Month Selector */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
-            <WalletCards className="w-6 h-6 text-amber-400" />
+          <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-start sm:items-center gap-2">
+            <WalletCards className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5 sm:mt-0" />
             Monthly Budget & Threshold Guardrails
           </h1>
           <p className="text-xs text-slate-400 mt-0.5">
@@ -120,7 +120,7 @@ export default function BudgetSettings() {
           <select
             value={selectedMonth}
             onChange={(e) => setSelectedMonth(e.target.value)}
-            className="pl-9 pr-8 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-white text-xs font-semibold focus:outline-none focus:border-amber-500 shadow-sm"
+            className="w-full sm:w-auto pl-9 pr-8 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-white text-xs font-semibold focus:outline-none focus:border-amber-500 shadow-sm"
           >
             {getMonthOptions().map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -168,7 +168,7 @@ export default function BudgetSettings() {
               />
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-slate-500 mt-2">
+            <div className="flex flex-wrap items-center justify-start gap-x-4 gap-y-2 text-[11px] text-slate-500 mt-2">
               <span className="flex items-center gap-1 text-emerald-400">
                 <CheckCircle2 className="w-3 h-3" /> Safe (&lt; {warningThreshold}%)
               </span>
@@ -309,7 +309,7 @@ export default function BudgetSettings() {
             <button
               type="submit"
               disabled={saving}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs transition-all shadow-md shadow-amber-500/20 disabled:opacity-50 active:scale-95"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs transition-all shadow-md shadow-amber-500/20 disabled:opacity-50 active:scale-95"
             >
               {saving ? (
                 <>

@@ -84,11 +84,11 @@ export default function ExpenseModal({ isOpen, onClose, onSaved, initialExpense 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150">
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center overflow-y-auto p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150">
+      <div className="my-auto bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-2xl">
         
         {/* Header */}
-        <div className="px-6 py-5 border-b border-slate-800 flex items-center justify-between">
+        <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-800 flex items-start justify-between gap-3">
           <div>
             <h3 className="text-base font-bold text-white">
               {initialExpense ? 'Edit Expense Record' : 'Record Daily Expense'}
@@ -106,7 +106,7 @@ export default function ExpenseModal({ isOpen, onClose, onSaved, initialExpense 
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
           {error && (
             <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-medium">
               {error}
@@ -191,19 +191,19 @@ export default function ExpenseModal({ isOpen, onClose, onSaved, initialExpense 
             />
           </div>
 
-          <div className="pt-3 border-t border-slate-800 flex items-center justify-end gap-3">
+          <div className="pt-3 border-t border-slate-800 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 sm:gap-3">
             <button
               type="button"
               onClick={onClose}
               disabled={submitting}
-              className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors"
+              className="px-4 py-2.5 sm:py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-md shadow-amber-500/20 disabled:opacity-50"
+              className="inline-flex justify-center items-center gap-2 px-5 py-2.5 sm:py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-md shadow-amber-500/20 disabled:opacity-50"
             >
               {submitting ? (
                 <>

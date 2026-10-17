@@ -82,8 +82,8 @@ export default function Profile() {
       
       {/* Header */}
       <div>
-        <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
-          <Store className="w-6 h-6 text-amber-400" />
+        <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight flex items-start sm:items-center gap-2">
+          <Store className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5 sm:mt-0" />
           Stall Profile & Vendor Configuration
         </h1>
         <p className="text-xs text-slate-400 mt-0.5">
@@ -238,7 +238,7 @@ export default function Profile() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs transition-all shadow-md shadow-amber-500/20 disabled:opacity-50"
+                className="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold text-xs transition-all shadow-md shadow-amber-500/20 disabled:opacity-50"
               >
                 {saving ? (
                   <>
