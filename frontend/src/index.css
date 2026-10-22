@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-sky-50 text-slate-700 min-h-screen antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Keep existing Tailwind color utilities while presenting a consistent light theme. */
+[class*="bg-slate-"] {
+  background-color: #fff !important;
+}
+
+[class*="bg-amber-"],
+[class*="bg-emerald-"],
+[class*="bg-blue-"],
+[class*="bg-purple-"],
+[class*="bg-orange-"] {
+  background-color: #eff6ff !important;
+}
+
+[class*="bg-rose-"] {
+  background-color: #fff1f2 !important;
+}
+
+[class*="text-white"] {
+  color: #0f172a !important;
+}
+
+[class*="text-slate-"] {
+  color: #475569 !important;
+}
+
+[class*="text-amber-"],
+[class*="text-emerald-"],
+[class*="text-blue-"],
+[class*="text-purple-"],
+[class*="text-orange-"] {
+  color: #2563eb !important;
+}
+
+[class*="text-rose-"] {
+  color: #be123c !important;
+}
+
+[class*="border-slate-"] {
+  border-color: #e2e8f0 !important;
+}
+
+[class*="border-amber-"],
+[class*="border-emerald-"],
+[class*="border-blue-"],
+[class*="border-purple-"],
+[class*="border-orange-"] {
+  border-color: #dbeafe !important;
+}
+
+[class*="border-rose-"] {
+  border-color: #fecdd3 !important;
+}
+
+[class*="hover:bg-slate-"]:hover {
+  background-color: #f1f7ff !important;
+}
+
+[class*="hover:bg-amber-"]:hover,
+[class*="hover:bg-emerald-"]:hover,
+[class*="hover:bg-blue-"]:hover,
+[class*="hover:bg-purple-"]:hover,
+[class*="hover:bg-orange-"]:hover {
+  background-color: #dbeafe !important;
+}
+
+[class*="hover:bg-rose-"]:hover {
+  background-color: #ffe4e6 !important;
+}
+
+[class*="hover:text-white"]:hover,
+[class*="hover:text-slate-"]:hover,
+[class*="hover:text-amber-"]:hover,
+[class*="hover:text-emerald-"]:hover,
+[class*="hover:text-blue-"]:hover,
+[class*="hover:text-purple-"]:hover,
+[class*="hover:text-orange-"]:hover {
+  color: #1d4ed8 !important;
+}
+
+[class*="hover:text-rose-"]:hover {
+  color: #9f1239 !important;
+}
+
+[class*="hover:border-slate-"]:hover,
+[class*="hover:border-amber-"]:hover,
+[class*="hover:border-emerald-"]:hover,
+[class*="hover:border-blue-"]:hover,
+[class*="hover:border-purple-"]:hover,
+[class*="hover:border-orange-"]:hover {
+  border-color: #bfdbfe !important;
+}
+
+[class*="hover:border-rose-"]:hover {
+  border-color: #fda4af !important;
+}
+[class*="bg-gradient-to-"] {
+  background-image: none !important;
+  background-color: #eff6ff !important;
+}
+
+[class*="shadow-"] {
+  box-shadow: 0 1px 3px rgb(15 23 42 / 0.08) !important;
+}
+
+.budget-progress-track {
+  background-color: #dbeafe !important;
+}
+
+.budget-progress-fill {
+  background-color: #2563eb !important;
+}
+
+.budget-progress-fill.bg-amber-500 {
+  background-color: #f59e0b !important;
+}
+
+.budget-progress-fill.bg-rose-500 {
+  background-color: #e11d48 !important;
+}

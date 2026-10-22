@@ -25,5 +25,5 @@ DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./streetledger.db")
 IS_SQLITE = DATABASE_URL.startswith("sqlite")
 
 # CORS Origins
-_raw_cors = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000")
+_raw_cors = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174,http://localhost:3000")
 CORS_ORIGINS = [origin.strip() for origin in _raw_cors.split(",") if origin.strip()]
