@@ -130,3 +130,19 @@
 [class*="shadow-"] {
   box-shadow: 0 1px 3px rgb(15 23 42 / 0.08) !important;
 }
+
+.budget-progress-track {
+  background-color: #dbeafe !important;
+}
+
+.budget-progress-fill {
+  background-color: #2563eb !important;
+}
+
+.budget-progress-fill.bg-amber-500 {
+  background-color: #f59e0b !important;
+}
+
+.budget-progress-fill.bg-rose-500 {
+  background-color: #e11d48 !important;
+}

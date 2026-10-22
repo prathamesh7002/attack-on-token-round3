@@ -155,9 +155,16 @@ export default function BudgetSettings() {
               <span>Budget: ₹{budgetStatus.budget_amount_inr.toLocaleString('en-IN')}</span>
             </div>
             
-            <div className="h-3 w-full bg-slate-800 rounded-full overflow-hidden flex">
+            <div
+              className="budget-progress-track h-3 w-full rounded-full overflow-hidden flex"
+              role="progressbar"
+              aria-label="Monthly budget used"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.min(budgetStatus.utilization_pct, 100)}
+            >
               <div
-                className={`h-full transition-all duration-500 ${
+                className={`budget-progress-fill h-full transition-all duration-500 ${
                   budgetStatus.utilization_pct >= 100
                     ? 'bg-rose-500'
                     : budgetStatus.utilization_pct >= (budgetStatus.warning_threshold_pct || 80)
